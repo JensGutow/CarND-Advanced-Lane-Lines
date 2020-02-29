@@ -1,18 +1,15 @@
 import cv2
 import numpy as np
 
-class adv_line_detection(object):
-    # static member
-    cl = 2
-    
+class img_transformation(object):
     def __init__(self, s_thresh_min = 130, s_thresh_max = 255, thresh_min = 45, thresh_max = 250):
-        print("adv_line_detection constructor NEU2")
+        print("img_trafo")
         self.s_thresh_min   =  s_thresh_min
         self.s_thresh_max   =  s_thresh_max
         self.thresh_min     = thresh_min
         self.thresh_max     =  thresh_max
     
-    def line_detection(self, warpedImg, test=False):
+    def transformation(self, warpedImg, test=False):
         ## 1) warpedImg -> hls -> s_channel -> Threshold_s
         # Convert the warped image into HLS
         testOut = []
@@ -57,3 +54,4 @@ class adv_line_detection(object):
             return combined_binary, testOut
         else:
             return combined_binary
+            

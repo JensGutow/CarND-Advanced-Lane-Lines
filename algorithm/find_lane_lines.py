@@ -8,7 +8,7 @@ import algorithm.unit_conversion as conv
 class find_lane_lines(object):
  # static member
     def __init__(self):
-        print("find_lane_lines constructor test")
+        print("find_lane_lines constructor")
 
         c = conv.unit_conversion()
         self.xm_per_pix = c.get_xy_m_per_tick()[0]

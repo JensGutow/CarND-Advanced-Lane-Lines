@@ -1,6 +1,6 @@
 import algorithm.undistortion as undist
 import algorithm.switch_perspective as persp
-import algorithm.adv_line_detection as det
+import algorithm.img_transformation as det
 import algorithm.measure as measure
 import algorithm.report as report
 import algorithm.find_lane_lines as lines
@@ -17,7 +17,7 @@ class video_pipeline(object):
         self.persp = persp.switch_perspective()
         self.persp.setParameterFromPickle(perspectivePickleDest)
         
-        self.det = det.adv_line_detection()
+        self.det = det.img_transformation()
         
         self.measure = measure.measure()
         
@@ -38,7 +38,7 @@ class video_pipeline(object):
         trafoImg = self.persp.get_birds_eye_with_blur(undistortedImg)
         
         #imgs.append(trafoImg)
-        grayLines = self.det.line_detection(trafoImg)
+        grayLines = self.det.transformation(trafoImg)
         
         #imgs.append(grayLines)
         l_cr,r_cr, l_persp, r_persp = self.lines.fit_polynomial(grayLines)
